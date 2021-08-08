@@ -4,15 +4,13 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  entry: {
-    bundle: './src/js/index.js'
-  },
+
+  entry: [
+    './src/js/index.js'
+  ],
 
   output: {
-    filename: '[name].js',
-    path: path.resolve(__dirname, 'docs'),
-    publicPath: '/docs',
-    library: 'webpackGhPages',
+    filename: './js/bundle.js'
   },
 
   devtool: "source-map",
@@ -73,7 +71,7 @@ module.exports = {
     }),
 
     new MiniCssExtractPlugin({
-      filename: '[name].css',
+      filename: 'style.css',
     }),
 
     new CopyWebpackPlugin([
