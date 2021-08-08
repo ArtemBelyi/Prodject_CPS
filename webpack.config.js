@@ -4,13 +4,14 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  entry: [
-    './src/js/index.js'
-  ],
+  entry: {
+    bundle: './src/js/index.js'
+  },
 
   output: {
-    filename: 'bundle.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'docs'),
+    publicPath: '/docs',
     library: 'webpackGhPages',
   },
 
@@ -72,7 +73,7 @@ module.exports = {
     }),
 
     new MiniCssExtractPlugin({
-      filename: 'style.css',
+      filename: '[name].css',
     }),
 
     new CopyWebpackPlugin([
