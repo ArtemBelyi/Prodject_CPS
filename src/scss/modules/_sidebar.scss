@@ -1,0 +1,133 @@
+@import "../utils/var";
+@import "../utils/mixins";
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar {
+    width: 320px;
+    height: 100vh;
+    &__container {
+        padding: 18px 24px 32px 24px;
+        box-shadow: 40px 0px 25px -10px rgba(14, 24, 80, 0.2);
+    }
+}
+.sidebar-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+.header-sidebar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &__item {
+        cursor: pointer;
+    }
+    &__item:nth-child(2) {
+        flex-grow: 1;
+        padding-left: 17px; 
+    }
+}
+.header-sidebar-btn-logo {
+    transition-property: opacity;
+    transition-duration: 0.5s;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    &:hover {
+        opacity: 0.7;
+    }
+}
+.sidebar-content__menu-list {
+    flex-grow: 1;
+    padding: 0;
+
+}
+.menu-list {
+    list-style-type: none;
+    &__item {
+        font-family: $font-lakes-medium;
+        font-size: 16px;
+        letter-spacing: -0.2px;
+        color: #1B1C21;
+        margin: 40px 0;
+    }
+    &__item-link {
+        transition: color 0.5s;
+        text-decoration: none;
+        color: #1B1C21;
+        &--active {
+            color: #7E7E82;
+            position: relative;
+            &::after {
+                @include line-caption(-24px, -5px, 4px, 32px);
+            }
+        }
+        &:hover {
+            color: #7E7E82;
+        }
+    }
+}
+.btn-list {
+    display: flex;
+    justify-content: start;
+    &__item {
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        margin-right: 16px;
+        padding: 0;
+        transition: opacity 0.5s;
+        cursor: pointer;
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+}
+.block-contacts {
+    color: #1B1C21;
+    &__mail {
+        display: block;
+        font-family: $font-lakes-medium;
+        font-size: 16px;
+        letter-spacing: -0.2px;
+    }
+    &__phone {
+        display: block;
+        font-family: $font-lakes-medium;
+        font-size: 24px;
+        letter-spacing: -0.6px;
+    }
+}
+.change-language {
+    font-family: $font-lakes-medium;
+    font-size: 16px;
+    letter-spacing: -0.2px;
+    color: #1B1C21;
+    &__item {
+        transition: color 0.5s;
+        cursor: pointer;
+        &:hover {
+            color: #7E7E82;
+        }
+    }
+    &__item--active {
+        color: #7E7E82;
+    }
+}
+.footer-sidebar {
+    &__btn-list {
+        margin-bottom: 16px;
+    }
+    &__contacts {
+        margin-bottom: 16px;
+    }
+}

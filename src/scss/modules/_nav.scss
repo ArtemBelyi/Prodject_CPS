@@ -1,0 +1,100 @@
+@import "../utils/var";
+@import "../utils/mixins";
+
+.menu__content {
+    position: relative;
+    padding: 24px 16px 24px 16px;
+    @media (min-width: $medium) {
+        min-width: $middle-width;
+        padding: 24px 16px 32px 24px;
+    }
+    @media (min-width: $large) {
+        min-width: $max-width;
+        padding: 42px 32px 10px 32px;
+    }
+}
+.menu-container {
+    min-width: $min-width;
+    background-color: #F8F8F8;
+    border-top: 1px solid #D9FFF5;
+    &__caption {
+        position: relative;
+        margin-bottom: 24px;
+        padding: 1px 0;
+        &::before {
+            @include line-caption(-16px, 0px, 4px, 32px);
+            @media (min-width: $medium) {
+                @include line-caption(-24px, 0px, 4px, 32px);
+            }
+            @media (min-width: $large) {
+                @include line-caption(-32px, 0px, 4px, 32px);
+            }
+        }
+    }
+    &__status-list {
+        display: none;
+        @media (min-width: $large) {
+            display: flex;
+            position: absolute;
+            top: 42px;
+            right: 64px;
+        }
+    }
+}
+.caption {
+    font-family: $font-lakes-bolt;
+    font-size: 28px;
+    letter-spacing: -0.6px;
+}
+.status-list {
+    &__item {
+        margin: 0 32px;
+        &:first-child {
+            margin-right: 0;
+        }
+        display: flex;
+    }
+    &__link {
+        display: block;
+        text-decoration: none;
+        font-family: $font-lakes-medium;
+        font-size: 16px;
+        letter-spacing: -0.2px;
+        padding: 8px;
+        color: #1B1C21;
+    }
+}
+
+.price-list {
+    display: flex;
+    font-family: $font-lakes-medium;
+    font-size: 16px;
+    letter-spacing: -0.2px;
+    overflow: scroll;
+    @media (min-width: $large) {
+        flex-wrap: wrap;
+        overflow: visible;
+    }
+    &__item {
+        padding: 10px 16px 8px 16px;
+        @media (min-width: $large) {
+            padding: 10px 22px 8px 22px;
+        }
+        &--active {
+            background-color: #fff;
+            border: 2px solid #B8FFEC;
+            border-radius: 6px;
+            padding: 7px 16px 7px 16px;
+        }
+        &:active {
+            background-color: #fff;
+            border: 2px solid #B8FFEC;
+            border-radius: 6px;
+            padding: 7px 16px 7px 16px;
+        }
+    }
+    &__item-text {
+        color: #7E7E82;
+        white-space: nowrap;
+    }
+}

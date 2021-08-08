@@ -1,0 +1,82 @@
+@import "../utils/var";
+@import "../utils/mixins";
+
+
+.header {
+    @media (min-width: $large) {
+        display: none;
+    }
+    &__content {
+        min-width: $min-width;
+        height: 89px;
+        @media (min-width: $medium) {
+            min-width: $middle-width;
+        }
+    }
+    &__menu {
+        display: flex;
+        align-items: center;
+    }
+}
+.menu__item {
+    padding-left: 16px;
+    &:last-child {
+    padding-left: 0px;
+    margin: 24px 16px 24px auto;
+    @media (min-width: $medium) {
+        margin: 24px 24px 24px 0px;
+        margin-left: auto;
+    }
+    }
+    &:first-child {
+        position: relative;
+    }
+    &:nth-child(2) {
+        margin-right: 17px;
+        @media (min-width: $medium) {
+            margin-left: 18px;
+        }
+        position: relative;
+        &::after {
+        @include line-header(-17px, 10px);
+        @media (min-width: $medium) {
+            display: none;
+        }
+    }
+    }
+    &:first-child::after {
+        @media (min-width: $medium) {
+            @include line-header(-20px, 4px)
+        }
+    }
+    @media (min-width: $medium) {
+        padding-left: 24px;
+    }
+}
+.link-menu {
+    display: flex;
+    flex-basis: 96px;
+    box-sizing: border-box;
+    max-height: 40px;
+    justify-content: space-between;
+    &__item {
+        margin-left: 16px;
+        &:nth-child(-n+3) {
+            display: none;
+            @media (min-width: $medium) {
+                display: block;
+            }
+        }
+        &:nth-child(4) {
+            @media (min-width: $medium) {
+                margin-left: 42px;
+                position: relative;
+            }
+            &::after {
+                @media (min-width: $medium) {
+                    @include line-header(60px, 4px)
+                }
+            }
+        }
+    }
+}
