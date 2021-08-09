@@ -7,12 +7,25 @@ body {
 }
 
 .sidebar {
+    display: none;
     width: 320px;
     height: 100vh;
+    @media (min-width: $extraLarge) {
+        display: block;
+    }
     &__container {
         padding: 18px 24px 32px 24px;
         box-shadow: 40px 0px 25px -10px rgba(14, 24, 80, 0.2);
+        @media (min-width: $extraLarge) {
+            box-shadow: 0px 0px 0px 0px;
+        }
     }
+}
+.sidebar-position {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
 }
 .sidebar-content {
     height: 100%;
@@ -30,7 +43,10 @@ body {
     }
     &__item:nth-child(2) {
         flex-grow: 1;
-        padding-left: 17px; 
+        padding-left: 17px;
+        @media (min-width: $extraLarge) {
+            padding-left: 0;
+        } 
     }
 }
 .header-sidebar-btn-logo {
@@ -43,6 +59,11 @@ body {
     padding: 0;
     &:hover {
         opacity: 0.7;
+    }
+    &:first-child {
+        @media (min-width: $extraLarge) {
+            display: none;
+        } 
     }
 }
 .sidebar-content__menu-list {
