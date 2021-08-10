@@ -3,8 +3,11 @@ function script() {
     let boxContainer = document.querySelector('.brand-box-container__input');
     let btnMore = document.querySelector('.btn-loader');
     let boxContainerArr = ['lenovo.png', 'samsung.png', 'apple.png', 'bosh.png', 'bosh.png', 'acer.png', 'sony.png', 'viewsonic.png', 'acer.png'];
-    let boxItem = document.createElement('div').classList.add('brand-box-container__item');
+    let btnBurger = document.querySelector('.menu__burger-icon');
+    let btnClose = document.querySelector('.header-sidebar-btn-logo');
+    let sidebar = document.querySelector('.sidebar-position');
 
+    /*hidden btn-more*/
     if (document.documentElement.clientWidth == 1920) {
         btnMore.style.display = "none";
     }
@@ -16,7 +19,8 @@ function script() {
             btnMore.style.display = "block";
         }
     });
-    
+
+    /* show brand cards*/
     function addElementItem(arr, container, classNameBlock, classNameElement) {
         for (let i = 0; i < arr.length; i++) {
             let elem = document.createElement('div');
@@ -32,5 +36,15 @@ function script() {
         };
     }
     addElementItem(boxContainerArr, boxContainer, 'brand-box-container__item', 'block-slide');
+
+    /*sidebar*/
+    btnBurger.addEventListener('click', e => {
+        sidebar.classList.toggle('sidebar-position--active')
+    })
+    btnClose.addEventListener('click', e => {
+        sidebar.classList.toggle('sidebar-position--active')
+    })
+
+
 }
 export default script;
