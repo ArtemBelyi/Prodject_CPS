@@ -68,10 +68,19 @@
                 РЕМОНТ ТЕХНИКИ РАЗЛИЧНЫХ БРЕНДОВ
             </div>
         </header>
-        <div class="main-container">
+        <div class="main-container main-container__brands">
             <div class="swiper-container brands-container">
                 <div class="swiper-wrapper brands-wrapper"></div>
-                <div class="swiper-pagination"></div>
+                <div class="swiper-pagination brands-pagination"></div>
+            </div>
+            <!--BrandBox Container-->
+            <div class="brand-box-container main-container__brand-box-container">
+                <input type="checkbox" class="brand-box-container__input" id="brand-box-container-input"/>
+                <div class="brand-box-container__more"></div>
+                <label for="brand-box-container-input" class="brand-box-container__label btn-brands-loader">
+                    <span class="btn-brands-loader__show"><i class="btn-brands-loader__icon fa fa-angle-double-down" aria-hidden="true"></i>Показать все</span>
+                    <span class="btn-brands-loader__hidden"><i class="btn-brands-loader__icon fa fa-angle-double-down" aria-hidden="true"></i>Скрыть</span>
+                </label>
             </div>
         </div>
         <!--Slider Services-->
@@ -80,20 +89,47 @@
                 РЕМОНТ РАЗЛИЧНЫХ ВИДОВ ТЕХНИКИ
             </div>
         </header>
-        <div class="main-container">
+        <div class="main-container main-container__services">
             <div class="swiper-container services-container">
                 <div class="swiper-wrapper services-wrapper"></div>
-                <div class="swiper-pagination"></div>
+                <div class="swiper-pagination services-pagination"></div>
+            </div>
+            <!--Services Container-->
+            <div class="services-box-container main-container__services-box-container">
+                <input type="checkbox" class="services-box-container__input" id="services-box-container-input"/>
+                <div class="services-box-container__more"></div>
+                <label for="services-box-container-input" class="services-box-container__label btn-services-loader">
+                    <span class="btn-services-loader__show"><i class="btn-services-loader__icon fa fa-angle-double-down" aria-hidden="true"></i>Показать все</span>
+                    <span class="btn-services-loader__hidden"><i class="btn-services-loader__icon fa fa-angle-double-down" aria-hidden="true"></i>Скрыть</span>
+                </label>
             </div>
         </div>
-        <!--BrandBox Container-->
-            <div class="brand-box-container main-container__brand-box-container">
-                <input type="checkbox" class="brand-box-container__input" id="brand-box-container-input"/>
-                <div class="brand-box-container__more"></div>
-                <label for="brand-box-container-input" class="brand-box-container__label btn-loader">
-                    <span class="btn-loader__show"><i class="btn-loader__icon fa fa-angle-double-down" aria-hidden="true"></i>Показать все</span>
-                    <span class="btn-loader__hidden"><i class="btn-loader__icon fa fa-angle-double-down" aria-hidden="true"></i>Скрыть</span>
-                </label>
+        <!--Slider Price Repair-->
+        <header class="header-slider-brands">
+            <div class="text-swiper header-slider-brands__text">
+                ЦЕНЫ НА УСЛУГИ
+            </div>
+        </header>
+        <div class="main-container main-container__price">
+            <div class="swiper-container price-container">
+                <div class="swiper-wrapper price-wrapper"></div>
+                <div class="swiper-pagination price-pagination"></div>
+            </div>
+            <!--Price Container-->
+            <div class="price-box-container main-container__price-box-container">
+                <div class="price-box-container__head-table head-table">
+                    <div class="head-table__item name-service">Ремонтные услуги</div>
+                    <div class="head-table__item price">Цена</div>
+                    <div class="head-table__item term">Срок</div>
+                </div>
+                <div class="price-box-container__main-table"></div>
+            </div>
+        </div>
+        <!--Section information-->
+        <div class="section-information section-information__container">
+            <div class="section-information__item">Все цены указаны с учетом НДС. Стоимость ремонта указана на единичную услугу. Для получения коммерческого предложения на постоянное обслуживание, оставьте заявку.</div>
+            <div class="section-information__item"><a href="#" class="section-information__item-link">Получить коммерческое предложение</a>
+                <i class="fa fa-chevron-right fa-chevron-right__information" aria-hidden="true"></i>
             </div>
         </div>
     </div>

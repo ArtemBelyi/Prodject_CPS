@@ -34,7 +34,7 @@
     @media (min-width: $medium) {
         width: 224px;
     }
-    @media (min-width: $large) {
+    @media (min-width: $mediumPlus) {
         width: 240px;
     }
     &__content {
@@ -53,17 +53,38 @@
     background-color: #fff;
 }
 .main-container {
-    position: relative;
     min-width: $min-width;
-    min-height: 154px;
-    background-color: #F2F2F2;
-    @media (min-width: $medium) {
-        min-height: 266px;
-    }
+    background-color: #F8F8F8;
     &__brand-box-container {
         padding: 16px 12px;
         @media (min-width: $large) {
             padding: 16px 16px;
+        }
+    }
+    &__services-box-container {
+        padding: 16px 12px;
+        @media (min-width: $large) {
+            padding: 16px 16px;
+        }
+    }
+    &__brands {
+        position: relative;
+        min-height: 140px;
+        @media (min-width: $medium) {
+            min-height: 264px;
+        }
+        @media (min-width: $mediumPlus) {
+            min-height: 282px;
+        }
+    }
+    &__services {
+        position: relative;
+        min-height: 228px;
+        @media (min-width: $medium) {
+            min-height: 264px;
+        }
+        @media (min-width: $mediumPlus) {
+            min-height: 282px;
         }
     }
 }
@@ -100,7 +121,7 @@
             }
         }
         &:nth-child(n) {
-            @media (min-width: 1390px) {
+            @media (min-width: 1345px) {
                 max-height: 900px;
                 opacity: 1;
                 transition: 0.3s linear;
@@ -130,14 +151,14 @@
         opacity: 1;
         transition: 0.3s linear;
     }
-    & #brand-box-container-input:checked ~ .btn-loader .btn-loader__hidden {
+    & #brand-box-container-input:checked ~ .btn-brands-loader .btn-brands-loader__hidden {
         display: block;
         margin-bottom: -10px;
     }
-    & #brand-box-container-input:checked ~ .btn-loader .btn-loader__show {
+    & #brand-box-container-input:checked ~ .btn-brands-loader .btn-brands-loader__show {
         display: none;
     }
-    & #brand-box-container-input:checked ~ .btn-loader .btn-loader__hidden .btn-loader__icon {
+    & #brand-box-container-input:checked ~ .btn-brands-loader .btn-brands-loader__hidden .btn-brands-loader__icon {
         transform: rotate(180deg);
         bottom: -6px;
     }
@@ -147,7 +168,7 @@
         margin-top: 10px;
     }
 }
-.btn-loader {
+.btn-brands-loader {
     font-family: $font-lakes-medium;
     font-size: 16px;
     letter-spacing: -0.2px;

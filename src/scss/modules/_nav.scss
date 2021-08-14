@@ -71,9 +71,9 @@
     font-size: 16px;
     letter-spacing: -0.2px;
     overflow: scroll;
-    @media (min-width: $large) {
+    @media (min-width: $mediumPlus) {
         flex-wrap: wrap;
-        overflow: visible;
+        overflow: hidden;
     }
     &__item {
         padding: 10px 16px 8px 16px;

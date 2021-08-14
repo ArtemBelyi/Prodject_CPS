@@ -1,0 +1,26 @@
+@import "../utils/var";
+@import "../utils/mixins";
+
+.section-information {
+    background-color: #F8F8F8;
+    min-height: 233px;
+    box-sizing: border-box;
+    min-width: $min-width;
+    font-family: $font-lakes-regular;
+    font-size: 14px;
+    letter-spacing: 0.2px;
+    color: #1B1C21;
+    &__container {
+        padding: 16px;
+    }
+    &__item {
+        margin-bottom: 16px;
+        margin-right: auto;
+    }
+    &__item-link {
+        text-decoration: none;
+        font-family: $font-lakes-medium;
+        color: #1B1C21;
+        font-size: 16px;
+    }
+}

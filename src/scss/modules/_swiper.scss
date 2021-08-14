@@ -65,11 +65,25 @@
       display: flex;
       padding: 16px;
       justify-content: space-between;
+      box-sizing: border-box;
       align-items: center;
     }
     &__service-content {
       display: flex;
+      height: 100%;
       padding: 16px;
+      justify-content: space-between;
+      box-sizing: border-box;
+      font-family: $font-lakes-medium;
+      font-size: 16px;
+      letter-spacing: -0.2px;
+      color: #1B1C21;
+    }
+    &__price-content {
+      display: flex;
+      height: 100%;
+      padding: 16px;
+      flex-direction: column;
     }
 }
 .swiper-slide-invisible-blank {
@@ -120,4 +134,45 @@
 .slide-service {
   width: 240px;
   height: 160px;
+}
+.slide-price {
+  width: 260px;
+  height: 200px;
+}
+.elem-button-services {
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background-color: #fff;
+  align-self: flex-end;
+}
+.elem-price-services {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  @include button-order($font-lakes-bolt, 119px, 32px, 16px);
+}
+.fa-chevron-right__price {
+  margin-left: 17px;
+}
+.fa-chevron-right__information {
+  margin-left: 5px;
+  color: #FF3E79;
+}
+.price-title{
+  margin-bottom: 16px;
+  font-family: $font-lakes-medium;
+  font-size: 14px;
+  color: #1B1C21;
+  &:last-child {
+    margin-bottom: 0px;
+  }
+  &__text {
+    font-family: $font-lakes-regular;
+    font-size: 14px;
+    letter-spacing: 0.2px;
+    color: #7E7E82;
+  }
 }

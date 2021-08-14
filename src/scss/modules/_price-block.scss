@@ -1,0 +1,56 @@
+@import "../utils/var";
+@import "../utils/mixins";
+
+* {
+    box-sizing: border-box;
+}
+
+.main-container {
+    min-width: $min-width;
+    background-color: #F8F8F8;
+    &__price {
+        position: relative;
+        min-height: 260px;
+        @media (min-width: $medium) {
+            min-height: 415px;
+        }
+    }
+    &__price-box-container {
+        padding: 16px 24px;
+        @media (min-width: $large) {
+            padding: 16px 32px;
+        }
+    }
+}
+.price-box-container {
+    display: flex;
+    flex-direction: column;
+    &__head-table {
+        padding: 16px;
+        background-color: #F8F8F8;
+        display: flex;
+        font-family: $font-lakes-medium;
+        font-size: 14px;
+        color: #7E7E82;
+    }
+    &__main-table {
+        background-color: #FFFFFF;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 6;
+        padding: 16px;
+    }
+}
+.head-table {
+    &__item {
+        &:nth-child(1) {
+            width: 50%;
+        }
+        &:nth-child(2) {
+            width: 20%;
+        }
+        &:nth-child(3) {
+            width: 30%;
+        }
+    }
+}

@@ -1,0 +1,123 @@
+@import "../utils/var";
+@import "../utils/mixins";
+
+.services-box-container {
+    display: none;
+    @media (min-width: $medium) {
+        display: flex;
+    }
+    flex-wrap: wrap;
+    &__item {
+        margin: 8px 12px;
+        @media (min-width: $large) {
+            margin: 8px 16px;
+        }
+        &:nth-child(1n + 5) {
+            @media (min-width: $medium) {
+                max-height: 0;
+                opacity: 0;
+                //transition: 0.3s linear;
+            }
+        }
+        &:nth-child(5) {
+            @media (min-width: 1016px) {
+                max-height: 900px;
+                opacity: 1;
+                transition: 0.3s linear;
+            }
+        }
+        &:nth-child(5) {
+            @media (min-width: 1016px) {
+                max-height: 900px;
+                opacity: 1;
+                transition: 0.3s linear;
+            }
+        }
+        &:nth-child(6) {
+            @media (min-width: 1345px) {
+                max-height: 900px;
+                opacity: 1;
+                transition: 0.3s linear;
+            }
+        }
+    }
+    &__input {
+        display: none;
+    }
+    &__label {
+        position: absolute;
+        bottom: 0px;
+        left: 58px;
+        bottom: 34px;
+        @media (min-width: $large) {
+            left: 68px;
+        }
+    }
+    &__more {
+        width: 100%;
+        height: auto;
+        height: 0;
+        transition: 0.3s linear;
+    }
+    & #services-box-container-input:checked ~ .services-box-container__item:nth-child(n) {
+        max-height: 900px;
+        opacity: 1;
+        transition: 0.3s linear;
+    }
+    & #services-box-container-input:checked ~ .btn-services-loader .btn-services-loader__hidden {
+        display: block;
+        margin-bottom: -10px;
+    }
+    & #services-box-container-input:checked ~ .btn-services-loader .btn-services-loader__show {
+        display: none;
+    }
+    & #services-box-container-input:checked ~ .btn-services-loader .btn-services-loader__hidden .btn-services-loader__icon {
+        transform: rotate(180deg);
+        bottom: -6px;
+    }
+    & #services-box-container-input:checked ~ .services-box-container__more {
+        height: 40px;
+        transition: 0.3s linear;
+        margin-top: 10px;
+    }
+}
+.btn-services-loader {
+    font-family: $font-lakes-medium;
+    font-size: 16px;
+    letter-spacing: -0.2px;
+    color: #1B1C21;
+    &__hidden {
+        display: none;
+    }
+    &__icon {
+        position: absolute;
+        left: -24px;
+        bottom: 4px;
+        color: #B8FFEC;
+    }
+}
+.block-services-slide {
+    flex-shrink: 0;
+    position: relative;
+    transition-property: transform;
+    border: 1px solid #EAEAEA;
+    box-sizing: border-box;
+    border-radius: 6px;
+    background-color: #fff;
+    width: 224px;
+    height: 160px;
+    @media (min-width: $mediumPlus) {
+        width: 240px;
+    }
+    &__content {
+        display: flex;
+        padding: 16px;
+        justify-content: space-between;
+        box-sizing: border-box;
+        font-family: $font-lakes-medium;
+        font-size: 16px;
+        letter-spacing: -0.2px;
+        color: #1B1C21;
+        height: 100%;
+    }
+}

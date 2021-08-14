@@ -51,6 +51,31 @@ function sliders() {
             }
         }
     });
+    const swiperPrice = new Swiper('.price-container', {
+        pagination: {
+            el: '.swiper-pagination',
+        },
+        scrollbar: {
+            el: '.swiper-scrollbar',
+        },
+        breakpoints: {
+        
+            280: {
+            slidesPerView: 1.10,
+            spaceBetween: 16
+            },
+            
+            528: {
+            slidesPerView: 1.90,
+            spaceBetween: 20
+            },
+            
+            784: {
+            slidesPerView: 2.90,
+            spaceBetween: 24
+            }
+        }
+    });
 }
 
 
