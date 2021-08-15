@@ -1,2 +1,130 @@
 @import "../utils/var";
 @import "../utils/mixins";
+
+* {
+    box-sizing: border-box;
+}
+
+/* header */
+
+.form-feedback-wrapper {
+    padding: 24px 16px;
+    @media (min-width: $medium) {
+        padding: 32px 32px;
+    }
+}
+
+.form-feedback {
+    background-color: #FFF;
+    width: $min-width;
+    height: 100%;
+    transition: all 0.3s;
+    @media (min-width: $medium) {
+        width: 440px;
+    }
+    &__header {
+        position: relative;
+        @media (min-width: $medium) {
+            display: none;
+        }
+    }
+    &__title {
+        position: relative;
+        font-family: $font-lakes-bolt;
+        font-size: 24px;
+        letter-spacing: -0.6px;
+        &::before {
+            @include line-caption(-16px, -8px, 4px, 40px);
+            @media (min-width: $medium) {
+                @include line-caption(-32px, -8px, 3px, 40px);
+            }
+        }
+    }
+    &__container {
+        padding: 24px 0px;
+    }
+}
+.feedback-header {
+    height: 80px;
+    &__btn-close {
+        cursor: pointer;
+        position: absolute;
+        transition-property: opacity;
+        transition-duration: 0.5s;
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        top: 0;
+        left: 0;
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+}
+.form-feedback-content {
+    &__wrapper {
+        margin-bottom: 16px;
+        &:nth-child(-n+3) {
+            height: 48px;
+        }
+        &:nth-child(-n+4) {
+            border: 1px solid #EAEAEA;
+            border-radius: 8px;
+        }
+        &:nth-child(4) {
+            height: 118px;
+        }
+    }
+    &__input {
+        border: none;
+        font-family: $font-lakes-medium;
+        font-size: 16px;
+        letter-spacing: -0.2px;
+        color: #B5B6BC;
+        height: 100%;
+        width: 100%;
+        padding: 16px;
+        border-radius: 8px;
+        &:focus {
+            outline: 0;
+        }
+    }
+    &__textarea {
+        border: none;
+        width: 100%;
+        height: 100%;
+        padding: 16px;
+        border-radius: 8px;
+        font-family: $font-lakes-medium;
+        font-size: 16px;
+        letter-spacing: -0.2px;
+        color: #B5B6BC;
+        &:focus {
+            outline: 0;
+        }
+    }
+    &__text {
+        font-family: $font-lakes-medium;
+        font-size: 14px;
+        color: #B5B6BC;
+    }
+    &__text-link {
+        text-decoration: none;
+        color: #FF3E79;
+    }
+    &__btn {
+        position: absolute;
+        bottom: -30px;
+        right: 0px;
+        @include button-order($font-lakes-bolt, 136px, 32px, 16px);
+    }
+}
+.feedback-wrapper-button {
+    position: relative;
+    &__icon {
+        margin-left: 12px;
+    }
+}
+
