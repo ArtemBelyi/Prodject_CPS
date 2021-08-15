@@ -2,7 +2,7 @@ function script() {
     /*brand-box var*/
     let boxContainer = document.querySelector('.brand-box-container__input');
     let boxServicesContainer = document.querySelector('.services-box-container__input');
-    let boxContainerArr = ['lenovo.png', 'samsung.png', 'viewsonic.png', 'bosh.png', 'bosh.png', 'acer.png', 'sony.png', 'viewsonic.png', 'acer.png'];
+    let boxContainerArr = ['lenovo.png', 'samsung.png', 'viewsonic.png', 'bosh.png', 'bosh.png', 'acer.png', 'sony.png', 'viewsonic.png', 'acer.png', 'samsung.png', 'lenovo.png', 'viewsonic.png'];
 
     /*buttons var*/
     let btnBurger = document.querySelector('.menu__burger-icon');
@@ -13,35 +13,46 @@ function script() {
 
     /*sliders var*/
     let slidersBrandsArr = ['lenovo.png', 'samsung.png', 'viewsonic.png', 'bosh.png', 'bosh.png', 'acer.png', 'sony.png', 'viewsonic.png', 'acer.png'];
-    let slidersServicesArr = ['Ремонт ноутбуков', 'Ремонт ПК', 'Ремонт мониторов', 'Ремонт телефонов', 'Ремонт принтеров', 'Ремонт пылесосов'];
+    let slidersServicesArr = ['Ремонт ноутбуков', 'Ремонт ПК', 'Ремонт мониторов', 'Ремонт телефонов', 'Ремонт принтеров', 'Ремонт пылесосов', 'Ремонт процессоров', 'Ремонт фотоаппаратов'];
     let slidersServicesContainer = document.querySelector('.services-wrapper');
     let sliderBrandsContainer = document.querySelector('.brands-wrapper');
     let sliderPriceContainer = document.querySelector('.price-wrapper');
+    let boxPriceContainer = document.querySelector('.price-table-content');
     let repairServices = [
         {
             name: 'Тестирование с выдачей технического заключения',
             price: 'Бесплатно',
-            term: '30 - 120 мин'
+            term: '30-120 мин'
         },
         {
             name: 'Замена дисплея',
             price: '3000 руб',
-            term: '30 - 120 мин'
+            term: '30-120 мин'
         },
         {
             name: 'Замена динамика',
             price: '1000 руб',
-            term: '30 - 120 мин'
+            term: '30-120 мин'
         },
         {
             name: 'Обновление ПО',
             price: '1000 руб',
-            term: '30 - 120 мин'
+            term: '30-120 мин'
         },
         {
             name: 'Диагностика',
             price: '1000 руб',
-            term: '30 - 120 мин'
+            term: '30-120 мин'
+        },
+        {
+            name: 'Ремонт процессора',
+            price: '2000 руб',
+            term: '30-120 мин'
+        },
+        {
+            name: 'Замена камеры',
+            price: '1500 руб',
+            term: '30-120 мин'
         },
     ];
     
@@ -134,7 +145,22 @@ function script() {
             container.after(elem);
         };
     }
-
+    function addBoxPrice(arr, container, classNameElement) {
+        for (let i = 0; i < arr.length; i++) {
+            let elem = document.createElement('div');
+            elem.classList.add(classNameElement);
+            elem.innerHTML = `
+            <div class="price-table-content__item-cell name-service"><span class="price-table-content__item-cell-text">${arr[i].name}</span></div>
+            <div class="price-table-content__item-cell price"><span class="price-table-content__item-cell-text">${arr[i].price}</span></div>
+            <div class="price-table-content__item-cell term">
+                <span class="price-table-content__item-cell-text">${arr[i].term}</span>
+                <button class="term__elem-button"> ЗАКАЗАТЬ <i class="fa fa-chevron-right fa-chevron-right__price" aria-hidden="true"></i></button>
+            </div>
+            `;
+            container.append(elem);
+        };
+    }
+    
     /*sidebar*/
     btnBurger.addEventListener('click', e => {
         sidebar.classList.toggle('sidebar-position--active')
@@ -143,13 +169,13 @@ function script() {
         sidebar.classList.toggle('sidebar-position--active')
     })
 
-    hiddenBtnMore(btnMoreBrands, boxContainerArr, 1350, 10);
-    hiddenBtnMore(btnMoreServices, slidersServicesArr, 1900, 6);
+    //hiddenBtnMore(btnMoreBrands, boxContainerArr, 1350, 10);
+    //hiddenBtnMore(btnMoreServices, slidersServicesArr, 1900, 6);
     addElementItem(boxContainerArr, boxContainer, 'brand-box-container__item', 'block-slide');
     addSliderBrands(slidersBrandsArr, sliderBrandsContainer, 'swiper-slide', 'slide-brands');
     addSliderServices(slidersServicesArr, slidersServicesContainer, 'swiper-slide', 'slide-service');
     addSliderPrice(repairServices, sliderPriceContainer, 'swiper-slide', 'slide-price');
     addBoxServices(slidersServicesArr, boxServicesContainer, 'services-box-container__item', 'block-services-slide');
-
+    addBoxPrice(repairServices, boxPriceContainer, 'price-table-content__item');
 }
 export default script;

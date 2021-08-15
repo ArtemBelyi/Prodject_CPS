@@ -21,6 +21,7 @@
     border-bottom-right-radius: 4px;
 }
 @mixin button-order($font, $width, $height, $border-radius) {
+    cursor: pointer;
     border: none;
     border-radius: $border-radius;
     width: $width;

@@ -23,8 +23,11 @@
     }
 }
 .price-box-container {
-    display: flex;
+    display: none;
     flex-direction: column;
+    @media (min-width: $medium) {
+        display: flex;
+    }
     &__head-table {
         padding: 16px;
         background-color: #F8F8F8;
@@ -38,7 +41,11 @@
         display: flex;
         flex-direction: column;
         flex-grow: 6;
-        padding: 16px;
+        padding: 0px 16px;
+        font-family: $font-lakes-regular;
+        font-size: 14px;
+        letter-spacing: 0.2px;
+        color: #18181f;
     }
 }
 .head-table {
@@ -52,5 +59,37 @@
         &:nth-child(3) {
             width: 30%;
         }
+    }
+}
+.price-table-content {
+    border-radius: 6px;
+    &__item {
+        display: flex;
+        border-bottom: 1px solid #EAEAEA;
+        height: 64px;
+    }
+    &__item-cell {
+        position: relative;
+        &:nth-child(1) {
+            width: 50%;
+        }
+        &:nth-child(2) {
+            width: 20%;
+        }
+        &:nth-child(3) {
+            width: 30%;
+        }
+    }
+    &__item-cell-text {
+        position: absolute;
+        top: 35%;
+    }
+}
+.term {
+    &__elem-button {
+        position: absolute;
+        bottom: 16px;
+        right: 0px;
+        @include button-order($font-lakes-bolt, 119px, 32px, 16px);
     }
 }

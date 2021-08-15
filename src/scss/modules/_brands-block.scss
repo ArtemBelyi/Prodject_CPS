@@ -90,6 +90,7 @@
 }
 .brand-box-container {
     display: none;
+    max-width: 1120px;
     @media (min-width: $medium) {
         display: flex;
     }
@@ -120,13 +121,13 @@
                 transition: 0.3s linear;
             }
         }
-        &:nth-child(n) {
+        /*&:nth-child(n) {
             @media (min-width: 1345px) {
                 max-height: 900px;
                 opacity: 1;
                 transition: 0.3s linear;
             }
-        }
+        }*/
     }
     &__input {
         display: none;
@@ -173,6 +174,7 @@
     font-size: 16px;
     letter-spacing: -0.2px;
     color: #1B1C21;
+    cursor: pointer;
     &__hidden {
         display: none;
     }
