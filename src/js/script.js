@@ -18,6 +18,11 @@ function script() {
     let btnFeedback = document.querySelectorAll('.btn-feedback');
     let btnFeedbackClose = document.querySelector('.feedback-header__btn-close');
 
+    /*form-call*/
+    let formCall = document.querySelector('.form-call-position');
+    let btnCall = document.querySelectorAll('.btn-call');
+    let btnCallClose = document.querySelector('.call-header__btn-close');
+
     /*sliders var*/
     let slidersBrandsArr = ['lenovo.png', 'samsung.png', 'viewsonic.png', 'bosh.png', 'bosh.png', 'acer.png', 'sony.png', 'viewsonic.png', 'acer.png'];
     let slidersServicesArr = ['Ремонт ноутбуков', 'Ремонт ПК', 'Ремонт мониторов', 'Ремонт телефонов', 'Ремонт принтеров', 'Ремонт пылесосов', 'Ремонт процессоров', 'Ремонт фотоаппаратов'];
@@ -201,5 +206,8 @@ function script() {
     // modal feedback
     openModal(btnFeedback, formFeedback, 'form-feedback-position--active');
     closeModal(btnFeedbackClose, formFeedback, 'form-feedback-position--active');
+    //modal call
+    openModal(btnCall, formCall, 'form-call-position--active');
+    closeModal(btnCallClose, formCall, 'form-call-position--active');
 }
 export default script;

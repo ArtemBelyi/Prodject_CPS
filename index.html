@@ -16,7 +16,7 @@
                     <div class="menu__item"><img src="./src/img/burger.png" alt="burger" class="menu__burger-icon"></div>
                     <div class="menu__item logo-group"><img src="./src/img/Group.png" alt="logo_group" class="logo-group__logo"></div>
                     <div class="menu__item link-menu">
-                        <div class="link-menu__item"><img src="./src/img/call.png" alt="repair" class="call"></div>
+                        <div class="link-menu__item btn-call"><img src="./src/img/call.png" alt="repair" class="call"></div>
                         <div class="link-menu__item btn-feedback"><img src="./src/img/chat.png" alt="repair" class="chat"></div>
                         <div class="link-menu__item"><img src="./src/img/profile.png" alt="repair" class="profile"></div>
                         <div class="link-menu__item"><img src="./src/img/repair.png" alt="repair" class="repair"></div>
@@ -153,7 +153,7 @@
             </ul>
             <div class="sidebar-content__footer footer-sidebar">
                 <div class="footer-sidebar__btn-list btn-list">
-                    <button type="submit" class="btn-list__item"><img src="./src/img/call.png" alt="pic-phone" class="btn-logo-call"></button>
+                    <button type="submit" class="btn-list__item btn-call"><img src="./src/img/call.png" alt="pic-phone" class="btn-logo-call"></button>
                     <button type="submit" class="btn-list__item btn-feedback"><img src="./src/img/chat.png" alt="pic-chat" class="btn-logo-chat"></button>
                     <button type="submit" class="btn-list__item"><img src="./src/img/profile.png" alt="pic-profile" class="btn-logo-profile"></button>
                 </div>
@@ -194,6 +194,26 @@
                 </div>
                 <div class="form-feedback-content__wrapper feedback-wrapper-button">
                     <button class="form-feedback-content__btn"> ОТПРАВИТЬ <i class="fa fa-chevron-right feedback-wrapper-button__icon" aria-hidden="true"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--Form-call-->
+    <div class="form-call form-call-wrapper form-call-position">
+        <div class="form-call__header call-header">
+            <button type="button" class="call-header__btn-close"><img src="./src/img/close.png" alt="" class="btn-logo-close"></button>
+        </div>
+        <div class="form-call__title">Заказать звонок</div>
+        <div class="form-call__container">
+            <form action="" class="form-call-content">
+                <div class="form-call-content__wrapper call-wrapper-phone">
+                    <input type="text" placeholder="Телефон" class="form-call-content__input"/>
+                </div>
+                <div class="form-call-content__wrapper call-wrapper-text">
+                    <span class="form-call-content__text">Нажимая “отправить”, вы даете согласие на <a href="#" class="form-call-content__text-link">обработку персональных данных</a> и соглашаетесь с нашей <a href="#" class="form-call-content__text-link">политикой конфиденциальности</a></span>
+                </div>
+                <div class="form-call-content__wrapper call-wrapper-button">
+                    <button class="form-call-content__btn"> ОТПРАВИТЬ <i class="fa fa-chevron-right call-wrapper-button__icon" aria-hidden="true"></i></button>
                 </div>
             </form>
         </div>
