@@ -4,12 +4,19 @@ function script() {
     let boxServicesContainer = document.querySelector('.services-box-container__input');
     let boxContainerArr = ['lenovo.png', 'samsung.png', 'viewsonic.png', 'bosh.png', 'bosh.png', 'acer.png', 'sony.png', 'viewsonic.png', 'acer.png', 'samsung.png', 'lenovo.png', 'viewsonic.png'];
 
-    /*buttons var*/
+    /*buttons more var*/
+    let btnMoreBrands = document.querySelector('.btn-brands-loader');
+    let btnMoreServices = document.querySelector('.btn-services-loader');
+
+    /*sidebar*/
     let btnBurger = document.querySelector('.menu__burger-icon');
     let btnClose = document.querySelector('.header-sidebar-btn-logo');
     let sidebar = document.querySelector('.sidebar-position');
-    let btnMoreBrands = document.querySelector('.btn-brands-loader');
-    let btnMoreServices = document.querySelector('.btn-services-loader');
+
+    /*form-feedback*/
+    let formFeedback = document.querySelector('.form-feedback-position');
+    let btnFeedback = document.querySelectorAll('.btn-feedback');
+    let btnFeedbackClose = document.querySelector('.feedback-header__btn-close');
 
     /*sliders var*/
     let slidersBrandsArr = ['lenovo.png', 'samsung.png', 'viewsonic.png', 'bosh.png', 'bosh.png', 'acer.png', 'sony.png', 'viewsonic.png', 'acer.png'];
@@ -168,14 +175,31 @@ function script() {
     btnClose.addEventListener('click', e => {
         sidebar.classList.toggle('sidebar-position--active')
     })
+    function openModal(btn, modal, classActive) {
+        btn.forEach(item => {
+            item.addEventListener('click', e => {
+                modal.classList.toggle(classActive)
+            })
+        })
+    }
+    function closeModal(btn, modal, classActive) {
+        btn.addEventListener('click', e => {
+            modal.classList.toggle(classActive)
+        })
+    }
 
     //hiddenBtnMore(btnMoreBrands, boxContainerArr, 1350, 10);
     //hiddenBtnMore(btnMoreServices, slidersServicesArr, 1900, 6);
+
+    //show sliders and lists
     addElementItem(boxContainerArr, boxContainer, 'brand-box-container__item', 'block-slide');
     addSliderBrands(slidersBrandsArr, sliderBrandsContainer, 'swiper-slide', 'slide-brands');
     addSliderServices(slidersServicesArr, slidersServicesContainer, 'swiper-slide', 'slide-service');
     addSliderPrice(repairServices, sliderPriceContainer, 'swiper-slide', 'slide-price');
     addBoxServices(slidersServicesArr, boxServicesContainer, 'services-box-container__item', 'block-services-slide');
     addBoxPrice(repairServices, boxPriceContainer, 'price-table-content__item');
+    // modal feedback
+    openModal(btnFeedback, formFeedback, 'form-feedback-position--active');
+    closeModal(btnFeedbackClose, formFeedback, 'form-feedback-position--active');
 }
 export default script;
