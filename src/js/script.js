@@ -19,13 +19,15 @@ function script() {
 
     /*form-feedback*/
     let formFeedback = document.querySelector('.form-feedback-position');
-    let btnFeedback = document.querySelectorAll('.btn-feedback');
+    let btnFeedback = document.querySelector('.btn-feedback');
+    let btnSidebarFeedback = document.querySelector('.btn-sidebar-feedback');
     let btnFeedbackClose = document.querySelector('.feedback-header__btn-close');
 
     /*form-call*/
     let formCall = document.querySelector('.form-call-position');
-    let btnCall = document.querySelectorAll('.btn-call');
+    let btnCall = document.querySelector('.btn-call');
     let btnCallClose = document.querySelector('.call-header__btn-close');
+    let btnSidebarCall = document.querySelector('.btn-sidebar-call');
 
     /*sliders var*/
     let slidersBrandsArr = ['lenovo.png', 'samsung.png', 'viewsonic.png', 'bosh.png', 'bosh.png', 'acer.png', 'sony.png', 'viewsonic.png', 'acer.png'];
@@ -183,31 +185,48 @@ function script() {
         layout.style.display = display
         layout.style['z-index'] = idx;
     }
+    function modal(modal, btn, classActive, classActiveBtn, display) {
+        modal.classList.toggle(classActive)
+        btn.classList.toggle(classActiveBtn)
+        layout.style.display = display
+    }
+
+    /*function call*/
+
     btnBurger.addEventListener('click', e => {
         toggleSidebar('block', 9)
     })
     btnClose.addEventListener('click', e => {
         toggleSidebar('none', '')
     })
-    function openModal(btn, modal, classActive, btnClose, classActiveBtn) {
-        btn.forEach(item => {
-            item.addEventListener('click', e => {
-                modal.classList.toggle(classActive)
-                btnClose.classList.toggle(classActiveBtn)
-                layout.style.display = 'block'
-            })
-        })
-    }
-    function closeModal(btn, modal, classActive, classActiveBtn) {
-        btn.addEventListener('click', e => {
-            modal.classList.toggle(classActive)
-            btn.classList.toggle(classActiveBtn)
-            layout.style.display = 'none'
-        })
-    }
 
-    //hiddenBtnMore(btnMoreBrands, boxContainerArr, 1350, 10);
-    //hiddenBtnMore(btnMoreServices, slidersServicesArr, 1900, 6);
+    /*call modal*/
+    btnCall.addEventListener('click', e => {
+        modal(formCall, btnCallClose, 'form-call-position--active', 'call-header__btn-close--active', 'block')
+    })
+    btnCallClose.addEventListener('click', e => {
+        modal(formCall, btnCallClose, 'form-call-position--active', 'call-header__btn-close--active', 'none')
+    });
+
+    /*feedback modal*/
+    btnFeedback.addEventListener('click', e => {
+        modal(formFeedback, btnFeedbackClose, 'form-feedback-position--active', 'feedback-header__btn-close--active', 'block')
+    })
+    btnFeedbackClose.addEventListener('click', e => {
+        modal(formFeedback, btnFeedbackClose, 'form-feedback-position--active', 'feedback-header__btn-close--active', 'none')
+    });
+
+    /*sidebar btn*/
+    btnSidebarFeedback.addEventListener('click', e => {
+        sidebar.classList.remove('sidebar-position--active')
+        layout.style['z-index'] = '';
+        modal(formFeedback, btnFeedbackClose, 'form-feedback-position--active', 'feedback-header__btn-close--active', 'block')
+    });
+    btnSidebarCall.addEventListener('click', e => {
+        sidebar.classList.remove('sidebar-position--active')
+        layout.style['z-index'] = '';
+        modal(formCall, btnCallClose, 'form-call-position--active', 'call-header__btn-close--active', 'block')
+    })
 
     //show sliders and lists
     addElementItem(boxContainerArr, boxContainer, 'brand-box-container__item', 'block-slide');
@@ -216,11 +235,5 @@ function script() {
     addSliderPrice(repairServices, sliderPriceContainer, 'swiper-slide', 'slide-price');
     addBoxServices(slidersServicesArr, boxServicesContainer, 'services-box-container__item', 'block-services-slide');
     addBoxPrice(repairServices, boxPriceContainer, 'price-table-content__item');
-    // modal feedback
-    openModal(btnFeedback, formFeedback, 'form-feedback-position--active', btnFeedbackClose, 'feedback-header__btn-close--active');
-    closeModal(btnFeedbackClose, formFeedback, 'form-feedback-position--active', 'feedback-header__btn-close--active');
-    //modal call
-    openModal(btnCall, formCall, 'form-call-position--active', btnCallClose, 'call-header__btn-close--active');
-    closeModal(btnCallClose, formCall, 'form-call-position--active', 'call-header__btn-close--active');
 }
 export default script;
