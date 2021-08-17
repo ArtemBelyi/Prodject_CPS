@@ -1,0 +1,38 @@
+@import "../utils/var";
+@import "../utils/mixins";
+
+* {
+    box-sizing: border-box;
+}
+
+.footer {
+    font-family: $font-lakes-medium;
+    font-size: 14px;
+    color: #7E7E82;
+    background-color: #F8F8F8;
+    &__wrapper {
+        padding: 19px;
+        border-top: 1px solid #D9FFF5;
+    }
+}
+.footer-content-list {
+    text-align: center;
+    @media (min-width: $medium) {
+        display: flex;
+    }
+    &__item {
+        @media (min-width: $medium) {
+            width: 33%;
+        }
+        &:first-child {
+            @media (min-width: $medium) {
+                text-align: start;
+            }
+        }
+        &:last-child {
+            @media (min-width: $medium) {
+                text-align: end;
+            }
+        }
+    }
+}

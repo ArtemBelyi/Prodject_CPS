@@ -13,6 +13,10 @@ function script() {
     let btnClose = document.querySelector('.header-sidebar-btn-logo');
     let sidebar = document.querySelector('.sidebar-position');
 
+    /*layout*/
+    let layout = document.querySelector('.layout');
+    let isActive = false;
+
     /*form-feedback*/
     let formFeedback = document.querySelector('.form-feedback-position');
     let btnFeedback = document.querySelectorAll('.btn-feedback');
@@ -174,22 +178,31 @@ function script() {
     }
     
     /*sidebar*/
-    btnBurger.addEventListener('click', e => {
+    function toggleSidebar(display, idx) {
         sidebar.classList.toggle('sidebar-position--active')
+        layout.style.display = display
+        layout.style['z-index'] = idx;
+    }
+    btnBurger.addEventListener('click', e => {
+        toggleSidebar('block', 9)
     })
     btnClose.addEventListener('click', e => {
-        sidebar.classList.toggle('sidebar-position--active')
+        toggleSidebar('none', '')
     })
-    function openModal(btn, modal, classActive) {
+    function openModal(btn, modal, classActive, btnClose, classActiveBtn) {
         btn.forEach(item => {
             item.addEventListener('click', e => {
                 modal.classList.toggle(classActive)
+                btnClose.classList.toggle(classActiveBtn)
+                layout.style.display = 'block'
             })
         })
     }
-    function closeModal(btn, modal, classActive) {
+    function closeModal(btn, modal, classActive, classActiveBtn) {
         btn.addEventListener('click', e => {
             modal.classList.toggle(classActive)
+            btn.classList.toggle(classActiveBtn)
+            layout.style.display = 'none'
         })
     }
 
@@ -204,10 +217,10 @@ function script() {
     addBoxServices(slidersServicesArr, boxServicesContainer, 'services-box-container__item', 'block-services-slide');
     addBoxPrice(repairServices, boxPriceContainer, 'price-table-content__item');
     // modal feedback
-    openModal(btnFeedback, formFeedback, 'form-feedback-position--active');
-    closeModal(btnFeedbackClose, formFeedback, 'form-feedback-position--active');
+    openModal(btnFeedback, formFeedback, 'form-feedback-position--active', btnFeedbackClose, 'feedback-header__btn-close--active');
+    closeModal(btnFeedbackClose, formFeedback, 'form-feedback-position--active', 'feedback-header__btn-close--active');
     //modal call
-    openModal(btnCall, formCall, 'form-call-position--active');
-    closeModal(btnCallClose, formCall, 'form-call-position--active');
+    openModal(btnCall, formCall, 'form-call-position--active', btnCallClose, 'call-header__btn-close--active');
+    closeModal(btnCallClose, formCall, 'form-call-position--active', 'call-header__btn-close--active');
 }
 export default script;
