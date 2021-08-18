@@ -97,7 +97,7 @@
     flex-wrap: wrap;
     &__item {
         margin: 8px 12px;
-        @media (min-width: $large) {
+        @media (min-width: $extraLarge) {
             margin: 8px 16px;
         }
         &:nth-child(1n + 8) {
@@ -108,14 +108,14 @@
             }
         }
         &:nth-child(8) {
-            @media (min-width: 1016px) {
+            @media (min-width: 1033px) {
                 max-height: 900px;
                 opacity: 1;
                 transition: 0.3s linear;
             }
         }
         &:nth-child(9) {
-            @media (min-width: 1016px) {
+            @media (min-width: 1033px) {
                 max-height: 900px;
                 opacity: 1;
                 transition: 0.3s linear;

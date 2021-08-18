@@ -180,70 +180,76 @@ function script() {
     }
     
     /*sidebar*/
-    function toggleSidebar(display, idx) {
-        sidebar.classList.toggle('sidebar-position--active')
-        layout.style.display = display
-        layout.style['z-index'] = idx;
+
+    function openSidebar () {
+        sidebar.classList.add('sidebar-position--active')
+        layout.style.display = 'block'
+        layout.style['z-index'] = 9;
+        document.body.style.overflow = 'hidden';
+        sidebar.style.overflow = 'scroll'
     }
-    function modal(modal, btn, classActive, classActiveBtn, display) {
-        modal.classList.toggle(classActive)
-        btn.classList.toggle(classActiveBtn)
-        layout.style.display = display
+    function closeSidebar () {
+        sidebar.classList.remove('sidebar-position--active')
+        layout.style.display = 'none'
+        layout.style['z-index'] = '';
+        document.body.style.overflow = '';
     }
+
+    function openModal(modal, btn, classActive, classActiveBtn) {
+        modal.classList.add(classActive)
+        btn.classList.add(classActiveBtn);
+        layout.style.display = 'block'
+        document.body.style.overflow = 'hidden';
+    }
+    function closeModal(modal, btn, classActive, classActiveBtn) {
+        modal.classList.remove(classActive)
+        btn.classList.remove(classActiveBtn);
+        layout.style.display = 'none'
+        document.body.style.overflow = '';
+    }
+    
 
     /*function call*/
 
     btnBurger.addEventListener('click', e => {
-        toggleSidebar('block', 9)
-        document.body.style.overflow = 'hidden';
-        sidebar.style.overflow = 'scroll'
+        openSidebar ()
     })
     btnClose.addEventListener('click', e => {
-        toggleSidebar('none', '')
-        document.body.style.overflow = '';
+        closeSidebar ()
     })
 
     /*call modal*/
     btnCall.addEventListener('click', e => {
-        modal(formCall, btnCallClose, 'form-call-position--active', 'call-header__btn-close--active', 'block')
-        document.body.style.overflow = 'hidden';
+        openModal(formCall, btnCallClose, 'form-call-position--active', 'call-header__btn-close--active')
     })
     btnCallClose.addEventListener('click', e => {
-        modal(formCall, btnCallClose, 'form-call-position--active', 'call-header__btn-close--active', 'none')
-        document.body.style.overflow = '';
+        closeModal(formCall, btnCallClose, 'form-call-position--active', 'call-header__btn-close--active')
     });
 
     /*feedback modal*/
     btnFeedback.addEventListener('click', e => {
-        modal(formFeedback, btnFeedbackClose, 'form-feedback-position--active', 'feedback-header__btn-close--active', 'block')
-        document.body.style.overflow = 'hidden';
+        openModal(formFeedback, btnFeedbackClose, 'form-feedback-position--active', 'feedback-header__btn-close--active')
     })
     btnFeedbackClose.addEventListener('click', e => {
-        modal(formFeedback, btnFeedbackClose, 'form-feedback-position--active', 'feedback-header__btn-close--active', 'none')
-        document.body.style.overflow = '';
+        closeModal(formFeedback, btnFeedbackClose, 'form-feedback-position--active', 'feedback-header__btn-close--active')
     });
     /*layout*/
     layout.addEventListener('click', function(e) {
         if (e.target.closest('.layout')) {
-            sidebar.classList.remove('sidebar-position--active')
-            formFeedback.classList.remove('form-feedback-position--active')
-            formCall.classList.remove('form-call-position--active')
-            layout.style.display = 'none';
-            document.body.style.overflow = '';
-            layout.style['z-index'] = '';
+            closeSidebar ()
+            closeModal(formCall, btnCallClose, 'form-call-position--active', 'call-header__btn-close--active')
+            closeModal(formFeedback, btnFeedbackClose, 'form-feedback-position--active', 'feedback-header__btn-close--active')
         }
     });
 
     /*sidebar btn*/
     btnSidebarFeedback.addEventListener('click', e => {
-        sidebar.classList.remove('sidebar-position--active')
-        layout.style['z-index'] = '';
-        modal(formFeedback, btnFeedbackClose, 'form-feedback-position--active', 'feedback-header__btn-close--active', 'block')
+        closeSidebar ()
+        openModal(formFeedback, btnFeedbackClose, 'form-feedback-position--active', 'feedback-header__btn-close--active')
     });
     btnSidebarCall.addEventListener('click', e => {
-        sidebar.classList.remove('sidebar-position--active')
-        layout.style['z-index'] = '';
-        modal(formCall, btnCallClose, 'form-call-position--active', 'call-header__btn-close--active', 'block')
+        closeSidebar ()
+        openModal(formCall, btnCallClose, 'form-call-position--active', 'call-header__btn-close--active')
     })
 
     //show sliders and lists
