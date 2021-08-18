@@ -12252,55 +12252,87 @@ __webpack_require__.r(__webpack_exports__);
 function script() {
   /*brand-box var*/
   var boxContainer = document.querySelector('.brand-box-container__input');
-  var boxContainerArr = ['lenovo.png', 'samsung.png', 'viewsonic.png', 'bosh.png', 'bosh.png', 'acer.png', 'sony.png', 'viewsonic.png', 'acer.png'];
-  /*buttons var*/
+  var boxServicesContainer = document.querySelector('.services-box-container__input');
+  var boxContainerArr = ['lenovo.png', 'samsung.png', 'viewsonic.png', 'bosh.png', 'bosh.png', 'acer.png', 'sony.png', 'viewsonic.png', 'acer.png', 'samsung.png', 'lenovo.png', 'viewsonic.png'];
+  /*buttons more var*/
+
+  var btnMoreBrands = document.querySelector('.btn-brands-loader');
+  var btnMoreServices = document.querySelector('.btn-services-loader');
+  /*sidebar*/
 
   var btnBurger = document.querySelector('.menu__burger-icon');
   var btnClose = document.querySelector('.header-sidebar-btn-logo');
   var sidebar = document.querySelector('.sidebar-position');
-  var btnMore = document.querySelector('.btn-loader');
+  var sidebarContainer = document.querySelector('.sidebar');
+  /*layout*/
+
+  var layout = document.querySelector('.layout');
+  /*form-feedback*/
+
+  var formFeedback = document.querySelector('.form-feedback-position');
+  var btnFeedback = document.querySelector('.btn-feedback');
+  var btnSidebarFeedback = document.querySelector('.btn-sidebar-feedback');
+  var btnFeedbackClose = document.querySelector('.feedback-header__btn-close');
+  /*form-call*/
+
+  var formCall = document.querySelector('.form-call-position');
+  var btnCall = document.querySelector('.btn-call');
+  var btnCallClose = document.querySelector('.call-header__btn-close');
+  var btnSidebarCall = document.querySelector('.btn-sidebar-call');
   /*sliders var*/
 
   var slidersBrandsArr = ['lenovo.png', 'samsung.png', 'viewsonic.png', 'bosh.png', 'bosh.png', 'acer.png', 'sony.png', 'viewsonic.png', 'acer.png'];
-  var slidersServicesArr = ['Ремонт ноутбуков', 'Ремонт ПК', 'Ремонт мониторов', 'Ремонт телефонов', 'Ремонт принтеров', 'Ремонт пылесосов'];
+  var slidersServicesArr = ['Ремонт ноутбуков', 'Ремонт ПК', 'Ремонт мониторов', 'Ремонт телефонов', 'Ремонт принтеров', 'Ремонт пылесосов', 'Ремонт процессоров', 'Ремонт фотоаппаратов'];
   var slidersServicesContainer = document.querySelector('.services-wrapper');
   var sliderBrandsContainer = document.querySelector('.brands-wrapper');
   var sliderPriceContainer = document.querySelector('.price-wrapper');
+  var boxPriceContainer = document.querySelector('.price-table-content');
   var repairServices = [{
     name: 'Тестирование с выдачей технического заключения',
     price: 'Бесплатно',
-    term: '30 - 120 мин'
+    term: '30-120 мин'
   }, {
     name: 'Замена дисплея',
     price: '3000 руб',
-    term: '30 - 120 мин'
+    term: '30-120 мин'
   }, {
     name: 'Замена динамика',
     price: '1000 руб',
-    term: '30 - 120 мин'
+    term: '30-120 мин'
   }, {
     name: 'Обновление ПО',
     price: '1000 руб',
-    term: '30 - 120 мин'
+    term: '30-120 мин'
   }, {
     name: 'Диагностика',
     price: '1000 руб',
-    term: '30 - 120 мин'
+    term: '30-120 мин'
+  }, {
+    name: 'Ремонт процессора',
+    price: '2000 руб',
+    term: '30-120 мин'
+  }, {
+    name: 'Замена камеры',
+    price: '1500 руб',
+    term: '30-120 мин'
   }];
   /*hidden btn-more*/
 
-  if (document.documentElement.clientWidth == 1920) {
-    btnMore.style.display = "none";
-  }
-
-  window.addEventListener('resize', function () {
-    if (document.documentElement.clientWidth > 1300 && boxContainerArr.length < 10) {
-      btnMore.style.display = "none";
-    } else {
-      btnMore.style.display = "block";
+  function hiddenBtnMore(btn, container, width, amount) {
+    if (document.body.clientWidth > width && container.length < amount) {
+      btn.style.display = "none";
     }
-  });
+
+    window.addEventListener('resize', function () {
+      if (document.body.clientWidth > width && container.length < amount) {
+        btn.style.display = "none";
+      } else {
+        btn.style.display = "block";
+      }
+    });
+  }
   /* show brand cards*/
+
 
   function addElementItem(arr, container, classNameBlock, classNameElement) {
     for (var i = 0; i < arr.length; i++) {
@@ -12351,19 +12383,111 @@ function script() {
 
     ;
   }
+
+  function addBoxServices(arr, container, classNameBlock, classNameElement) {
+    for (var i = 0; i < arr.length; i++) {
+      var elem = document.createElement('div');
+      elem.classList.add(classNameBlock);
+      elem.classList.add(classNameElement);
+      elem.innerHTML = "\n            <div class=\"block-services-slide__content\">\n                <div class=\"block-services-slide__elem service-title\">".concat(arr[i], "</div>\n                <button class=\"block-services-slide__elem elem-button-services\"><img src=\"./src/img/go.png\" alt=\"\" class=\"elem-button__icon\"></button>\n            </div>\n            ");
+      container.after(elem);
+    }
+
+    ;
+  }
+
+  function addBoxPrice(arr, container, classNameElement) {
+    for (var i = 0; i < arr.length; i++) {
+      var elem = document.createElement('div');
+      elem.classList.add(classNameElement);
+      elem.innerHTML = "\n            <div class=\"price-table-content__item-cell name-service\"><span class=\"price-table-content__item-cell-text\">".concat(arr[i].name, "</span></div>\n            <div class=\"price-table-content__item-cell price\"><span class=\"price-table-content__item-cell-text\">").concat(arr[i].price, "</span></div>\n            <div class=\"price-table-content__item-cell term\">\n                <span class=\"price-table-content__item-cell-text\">").concat(arr[i].term, "</span>\n                <button class=\"term__elem-button\"> \u0417\u0410\u041A\u0410\u0417\u0410\u0422\u042C <i class=\"fa fa-chevron-right fa-chevron-right__price\" aria-hidden=\"true\"></i></button>\n            </div>\n            ");
+      container.append(elem);
+    }
+
+    ;
+  }
   /*sidebar*/
 
 
+  function openSidebar() {
+    sidebar.classList.add('sidebar-position--active');
+    layout.style.display = 'block';
+    layout.style['z-index'] = 9;
+    document.body.style.overflow = 'hidden';
+    sidebar.style.overflow = 'scroll';
+  }
+
+  function closeSidebar() {
+    sidebar.classList.remove('sidebar-position--active');
+    layout.style.display = 'none';
+    layout.style['z-index'] = '';
+    document.body.style.overflow = '';
+  }
+
+  function openModal(modal, btn, classActive, classActiveBtn) {
+    modal.classList.add(classActive);
+    btn.classList.add(classActiveBtn);
+    layout.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal(modal, btn, classActive, classActiveBtn) {
+    modal.classList.remove(classActive);
+    btn.classList.remove(classActiveBtn);
+    layout.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+  /*function call*/
+
+
   btnBurger.addEventListener('click', function (e) {
-    sidebar.classList.toggle('sidebar-position--active');
+    openSidebar();
   });
   btnClose.addEventListener('click', function (e) {
-    sidebar.classList.toggle('sidebar-position--active');
+    closeSidebar();
   });
+  /*call modal*/
+
+  btnCall.addEventListener('click', function (e) {
+    openModal(formCall, btnCallClose, 'form-call-position--active', 'call-header__btn-close--active');
+  });
+  btnCallClose.addEventListener('click', function (e) {
+    closeModal(formCall, btnCallClose, 'form-call-position--active', 'call-header__btn-close--active');
+  });
+  /*feedback modal*/
+
+  btnFeedback.addEventListener('click', function (e) {
+    openModal(formFeedback, btnFeedbackClose, 'form-feedback-position--active', 'feedback-header__btn-close--active');
+  });
+  btnFeedbackClose.addEventListener('click', function (e) {
+    closeModal(formFeedback, btnFeedbackClose, 'form-feedback-position--active', 'feedback-header__btn-close--active');
+  });
+  /*layout*/
+
+  layout.addEventListener('click', function (e) {
+    if (e.target.closest('.layout')) {
+      closeSidebar();
+      closeModal(formCall, btnCallClose, 'form-call-position--active', 'call-header__btn-close--active');
+      closeModal(formFeedback, btnFeedbackClose, 'form-feedback-position--active', 'feedback-header__btn-close--active');
+    }
+  });
+  /*sidebar btn*/
+
+  btnSidebarFeedback.addEventListener('click', function (e) {
+    closeSidebar();
+    openModal(formFeedback, btnFeedbackClose, 'form-feedback-position--active', 'feedback-header__btn-close--active');
+  });
+  btnSidebarCall.addEventListener('click', function (e) {
+    closeSidebar();
+    openModal(formCall, btnCallClose, 'form-call-position--active', 'call-header__btn-close--active');
+  }); //show sliders and lists
+
   addElementItem(boxContainerArr, boxContainer, 'brand-box-container__item', 'block-slide');
   addSliderBrands(slidersBrandsArr, sliderBrandsContainer, 'swiper-slide', 'slide-brands');
   addSliderServices(slidersServicesArr, slidersServicesContainer, 'swiper-slide', 'slide-service');
   addSliderPrice(repairServices, sliderPriceContainer, 'swiper-slide', 'slide-price');
+  addBoxServices(slidersServicesArr, boxServicesContainer, 'services-box-container__item', 'block-services-slide');
+  addBoxPrice(repairServices, boxPriceContainer, 'price-table-content__item');
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (script);

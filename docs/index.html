@@ -8,6 +8,7 @@
     <title>Document</title>
 <link href="style.css" rel="stylesheet"></head>
 <body>
+    <div class="layout"></div>
     <div class="page-container">
         
         <header class="header">
@@ -16,8 +17,8 @@
                     <div class="menu__item"><img src="./src/img/burger.png" alt="burger" class="menu__burger-icon"></div>
                     <div class="menu__item logo-group"><img src="./src/img/Group.png" alt="logo_group" class="logo-group__logo"></div>
                     <div class="menu__item link-menu">
-                        <div class="link-menu__item"><img src="./src/img/call.png" alt="repair" class="call"></div>
-                        <div class="link-menu__item"><img src="./src/img/chat.png" alt="repair" class="chat"></div>
+                        <div class="link-menu__item btn-call"><img src="./src/img/call.png" alt="repair" class="call"></div>
+                        <div class="link-menu__item btn-feedback"><img src="./src/img/chat.png" alt="repair" class="chat"></div>
                         <div class="link-menu__item"><img src="./src/img/profile.png" alt="repair" class="profile"></div>
                         <div class="link-menu__item"><img src="./src/img/repair.png" alt="repair" class="repair"></div>
                         <div class="link-menu__item"><img src="./src/img/checkstatus.png" alt="checkstatus" class="checkstatus"></div>
@@ -77,9 +78,9 @@
             <div class="brand-box-container main-container__brand-box-container">
                 <input type="checkbox" class="brand-box-container__input" id="brand-box-container-input">
                 <div class="brand-box-container__more"></div>
-                <label for="brand-box-container-input" class="brand-box-container__label btn-loader">
-                    <span class="btn-loader__show"><i class="btn-loader__icon fa fa-angle-double-down" aria-hidden="true"></i>Показать все</span>
-                    <span class="btn-loader__hidden"><i class="btn-loader__icon fa fa-angle-double-down" aria-hidden="true"></i>Скрыть</span>
+                <label for="brand-box-container-input" class="brand-box-container__label btn-brands-loader">
+                    <span class="btn-brands-loader__show"><i class="btn-brands-loader__icon fa fa-angle-double-down" aria-hidden="true"></i>Показать все</span>
+                    <span class="btn-brands-loader__hidden"><i class="btn-brands-loader__icon fa fa-angle-double-down" aria-hidden="true"></i>Скрыть</span>
                 </label>
             </div>
         </div>
@@ -94,14 +95,20 @@
                 <div class="swiper-wrapper services-wrapper"></div>
                 <div class="swiper-pagination services-pagination"></div>
             </div>
+            
+            <div class="services-box-container main-container__services-box-container">
+                <input type="checkbox" class="services-box-container__input" id="services-box-container-input">
+                <div class="services-box-container__more"></div>
+                <label for="services-box-container-input" class="services-box-container__label btn-services-loader">
+                    <span class="btn-services-loader__show"><i class="btn-services-loader__icon fa fa-angle-double-down" aria-hidden="true"></i>Показать все</span>
+                    <span class="btn-services-loader__hidden"><i class="btn-services-loader__icon fa fa-angle-double-down" aria-hidden="true"></i>Скрыть</span>
+                </label>
+            </div>
         </div>
-
-        
-
         
         <header class="header-slider-brands">
             <div class="text-swiper header-slider-brands__text">
-                РЕМОНТ РАЗЛИЧНЫХ ВИДОВ ТЕХНИКИ
+                ЦЕНЫ НА УСЛУГИ
             </div>
         </header>
         <div class="main-container main-container__price">
@@ -109,15 +116,29 @@
                 <div class="swiper-wrapper price-wrapper"></div>
                 <div class="swiper-pagination price-pagination"></div>
             </div>
+            
+            <div class="price-box-container main-container__price-box-container">
+                <div class="price-box-container__head-table head-table">
+                    <div class="head-table__item name-service">Ремонтные услуги</div>
+                    <div class="head-table__item price">Цена</div>
+                    <div class="head-table__item term">Срок</div>
+                </div>
+                <div class="price-box-container__main-table price-table-content"></div>
+            </div>
         </div>
-
         
-        
-
         <div class="section-information section-information__container">
             <div class="section-information__item">Все цены указаны с учетом НДС. Стоимость ремонта указана на единичную услугу. Для получения коммерческого предложения на постоянное обслуживание, оставьте заявку.</div>
             <div class="section-information__item"><a href="#" class="section-information__item-link">Получить коммерческое предложение</a>
                 <i class="fa fa-chevron-right fa-chevron-right__information" aria-hidden="true"></i>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <div class="footer__wrapper footer-content-list">
+                <div class="footer-content-list__item"><p>© 2019 CPS<br>Разработано командой Apesong</p></div>
+                <div class="footer-content-list__item"><p>Политика конфиденциальности</p></div>
+                <div class="footer-content-list__item"><p>Информация, размещенная на данной странице, не является публичной офертой</p></div>
             </div>
         </div>
     </div>
@@ -141,9 +162,9 @@
             </ul>
             <div class="sidebar-content__footer footer-sidebar">
                 <div class="footer-sidebar__btn-list btn-list">
-                    <button type="submit" class="btn-list__item"><img src="./src/img/call.png" alt="pic-phone" class="btn-logo__close"></button>
-                    <button type="submit" class="btn-list__item"><img src="./src/img/chat.png" alt="pic-chat" class="btn-logo__close"></button>
-                    <button type="submit" class="btn-list__item"><img src="./src/img/profile.png" alt="pic-profile" class="btn-logo__close"></button>
+                    <button type="submit" class="btn-list__item btn-sidebar-call"><img src="./src/img/call.png" alt="pic-phone" class="btn-logo-call"></button>
+                    <button type="submit" class="btn-list__item btn-sidebar-feedback"><img src="./src/img/chat.png" alt="pic-chat" class="btn-logo-chat"></button>
+                    <button type="submit" class="btn-list__item"><img src="./src/img/profile.png" alt="pic-profile" class="btn-logo-profile"></button>
                 </div>
                 <div class="footer-sidebar__contacts block-contacts">
                     <span class="block-contacts__mail">mail@cps.com</span>
@@ -155,6 +176,55 @@
                     <span class="change-language__item">CH</span>
                 </div>
             </div>
+        </div>
+    </div>
+    
+    <div class="form-feedback form-feedback-wrapper form-feedback-position">
+        <div class="form-feedback__header feedback-header">
+            <button type="button" class="feedback-header__btn-close"><img src="./src/img/close.png" alt="" class="btn-logo-close"></button>
+        </div>
+        <div class="form-feedback__title">Обратная связь</div>
+        <div class="form-feedback__container">
+            <form action="" class="form-feedback-content">
+                <div class="form-feedback-content__wrapper feedback-wrapper-name">
+                    <input type="text" placeholder="Имя" class="form-feedback-content__input">
+                </div>
+                <div class="form-feedback-content__wrapper feedback-wrapper-phone">
+                    <input type="text" placeholder="Телефон" class="form-feedback-content__input">
+                </div>
+                <div class="form-feedback-content__wrapper feedback-wrapper-mail">
+                    <input type="text" placeholder="Электронная почта" class="form-feedback-content__input">
+                </div>
+                <div class="form-feedback-content__wrapper feedback-wrapper-message">
+                    <textarea placeholder="Сообщение" class="form-feedback-content__textarea"></textarea>
+                </div>
+                <div class="form-feedback-content__wrapper feedback-wrapper-text">
+                    <span class="form-feedback-content__text">Нажимая “отправить”, вы даете согласие на <a href="#" class="form-feedback-content__text-link">обработку персональных данных</a> и соглашаетесь с нашей <a href="#" class="form-feedback-content__text-link">политикой конфиденциальности</a></span>
+                </div>
+                <div class="form-feedback-content__wrapper feedback-wrapper-button">
+                    <button class="form-feedback-content__btn"> ОТПРАВИТЬ <i class="fa fa-chevron-right feedback-wrapper-button__icon" aria-hidden="true"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <div class="form-call form-call-wrapper form-call-position">
+        <div class="form-call__header call-header">
+            <button type="button" class="call-header__btn-close"><img src="./src/img/close.png" alt="" class="btn-logo-close"></button>
+        </div>
+        <div class="form-call__title">Заказать звонок</div>
+        <div class="form-call__container">
+            <form action="" class="form-call-content">
+                <div class="form-call-content__wrapper call-wrapper-phone">
+                    <input type="text" placeholder="Телефон" class="form-call-content__input">
+                </div>
+                <div class="form-call-content__wrapper call-wrapper-text">
+                    <span class="form-call-content__text">Нажимая “отправить”, вы даете согласие на <a href="#" class="form-call-content__text-link">обработку персональных данных</a> и соглашаетесь с нашей <a href="#" class="form-call-content__text-link">политикой конфиденциальности</a></span>
+                </div>
+                <div class="form-call-content__wrapper call-wrapper-button">
+                    <button class="form-call-content__btn"> ОТПРАВИТЬ <i class="fa fa-chevron-right call-wrapper-button__icon" aria-hidden="true"></i></button>
+                </div>
+            </form>
         </div>
     </div>
 <script type="text/javascript" src="./js/bundle.js"></script></body>
