@@ -12,10 +12,10 @@ function script() {
     let btnBurger = document.querySelector('.menu__burger-icon');
     let btnClose = document.querySelector('.header-sidebar-btn-logo');
     let sidebar = document.querySelector('.sidebar-position');
+    let sidebarContainer = document.querySelector('.sidebar');
 
     /*layout*/
     let layout = document.querySelector('.layout');
-    let isActive = false;
 
     /*form-feedback*/
     let formFeedback = document.querySelector('.form-feedback-position');
@@ -195,25 +195,43 @@ function script() {
 
     btnBurger.addEventListener('click', e => {
         toggleSidebar('block', 9)
+        document.body.style.overflow = 'hidden';
+        sidebar.style.overflow = 'scroll'
     })
     btnClose.addEventListener('click', e => {
         toggleSidebar('none', '')
+        document.body.style.overflow = '';
     })
 
     /*call modal*/
     btnCall.addEventListener('click', e => {
         modal(formCall, btnCallClose, 'form-call-position--active', 'call-header__btn-close--active', 'block')
+        document.body.style.overflow = 'hidden';
     })
     btnCallClose.addEventListener('click', e => {
         modal(formCall, btnCallClose, 'form-call-position--active', 'call-header__btn-close--active', 'none')
+        document.body.style.overflow = '';
     });
 
     /*feedback modal*/
     btnFeedback.addEventListener('click', e => {
         modal(formFeedback, btnFeedbackClose, 'form-feedback-position--active', 'feedback-header__btn-close--active', 'block')
+        document.body.style.overflow = 'hidden';
     })
     btnFeedbackClose.addEventListener('click', e => {
         modal(formFeedback, btnFeedbackClose, 'form-feedback-position--active', 'feedback-header__btn-close--active', 'none')
+        document.body.style.overflow = '';
+    });
+    /*layout*/
+    layout.addEventListener('click', function(e) {
+        if (e.target.closest('.layout')) {
+            sidebar.classList.remove('sidebar-position--active')
+            formFeedback.classList.remove('form-feedback-position--active')
+            formCall.classList.remove('form-call-position--active')
+            layout.style.display = 'none';
+            document.body.style.overflow = '';
+            layout.style['z-index'] = '';
+        }
     });
 
     /*sidebar btn*/
