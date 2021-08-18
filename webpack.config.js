@@ -64,7 +64,7 @@ module.exports = {
 
     new HtmlWebpackPlugin({
       title: 'Webpack 4 Starter',
-      template: './index.html',
+      template: './src/index.html',
       inject: true,
       minify: {
         removeComments: true,
@@ -79,7 +79,7 @@ module.exports = {
     new CopyWebpackPlugin([
       {
         from: './src/img',
-        to: 'img',
+        to: 'src/img',
       },
     ])
   ],
